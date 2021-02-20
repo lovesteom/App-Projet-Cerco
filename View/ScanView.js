@@ -1,7 +1,6 @@
 import React, { useState, useEffect} from 'react'
-import { Image, StyleSheet, Text, View, Button } from 'react-native'
+import { Image, StyleSheet, Text, View, Button, Linking } from 'react-native'
 import { BarCodeScanner } from 'expo-barcode-scanner';
-
 export default function ScanView() {
 
     const [hasPermission, setHasPermission] = useState(null);
@@ -18,8 +17,10 @@ export default function ScanView() {
      
       const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
-        alert(`Code scanné avec succès. Information: receuillie: ${data}`);
+        //alert(`Code scanné avec succès. Information: receuillie: ${data}`);
+        Linking.openURL(data)
       };
+      
     
       if (hasPermission === null) {
         return <Text>Requesting for camera permission</Text>;

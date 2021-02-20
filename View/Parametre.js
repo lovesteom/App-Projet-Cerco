@@ -2,43 +2,100 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, TouchableOpacity,TextInput,Button,Image,Text, View } from 'react-native';
 
-//import { NavigationContainer } from '@react-navigation/native';
-//import { createStackNavigator, createAppContainer, StackActions } from 'react-navigation';
 
 
 
 export default function App() {
   return (
     <View style={styles.container}>
-       
-        <View style={styles.appuisRetour}>
-            
+
+     <View>
+
             <View style={styles.toch} >
-              <TouchableOpacity  > 
+              <TouchableOpacity  onPress={()=>{navigation.navigate('ScanView')}}> 
                 <Text style={styles.text}>Retour</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity  > 
+              <TouchableOpacity  onPress={()=>{navigation.navigate('Parametre')} }> 
                 <Text style={styles.text}>Paramètres</Text>
               </TouchableOpacity>
+              
+            </View>
+
+            <View >
+              <TouchableOpacity>
+                <image source={require('../assets/image/avatar.png')}/>
+              </TouchableOpacity>
+
+              <Text>
+                jac@wadunu.bj
+              </Text>
+
 
             </View>
-                    
-                     
-            
-        </View>       
 
-        
+
+            <View>
+
+
+            </View>
+      </View>
+       
+        <View style={styles.appuisRetour}>
+            
+            
+
+            
+
+            <View>
+              <Text>
+                Nom
+              </Text>
+
+              <Text>
+                  GBEGNON
+              </Text>
+                  
+              <Text>
+                  Jac
+              </Text>
+
+              <Text>
+                  Email
+              </Text>
+                  
+              <Text>
+                  jac@wadunu.bj
+              </Text>
+
+              <Text>
+                  Téléphone
+              </Text>
+
+              <Text>
+                  +229 68 00 00 11
+              </Text>
+
+              <Text>
+                  Compte par défaut
+              </Text>
+
+              <Text>
+                  Mobile money
+              </Text>
+
+              <Text>
+                  Compte bancaire
+              </Text>
+            </View>
+               
+        </View>       
 
       <StatusBar style="auto" />
     </View>
 
-        
-    
-    
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -68,3 +125,4 @@ const styles = StyleSheet.create({
   
 
 });
+

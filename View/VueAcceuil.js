@@ -1,52 +1,65 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, TextInput,Button,Image,Text, View } from 'react-native';
-import Parametre from './Parametre';
+import { StyleSheet, TextInput,TouchableOpacity,Button,ScrollView,Image,Text, View } from 'react-native';
 import ScanView from './ScanView';
-//import { NavigationContainer } from '@react-navigation/native';
-//import { createStackNavigator, createAppContainer, StackActions } from 'react-navigation';
+import Inscription from './Inscription';
+import { createStackNavigator } from '@react-navigation/stack';
+import 'react-native-gesture-handler';
 
 
 
-export default function App() {
+const Stack = createStackNavigator();
+
+  const VueAcceuil = ({navigation}) => {
+    console.log(navigation)
+  
   return (
+    <ScrollView>
 
-      <ScanView />
-        // <Parametre/>
-    /*<View style={styles.container}>
-        <View style={styles.vueImage}>
-            <Image style={styles.image} source={require('../assets/image/couscousroyal.png')}/>
-            <Image style={styles.image2} source={require('../assets/image/logo2.png')}/>
+<View style={styles.container}>
+    <View style={styles.vueImage}>
+        <Image style={styles.image} source={require('../assets/image/couscousroyal.png')}/>
+        <Image style={styles.image2} source={require('../assets/image/logo2.png')}/>
+        
+        <TextInput placeholder="Nom d'utilisateur"  style={styles.inputnom} onChangeText={text => onChangeText(text)}/>
+        <TextInput placeholder="Mot de passe"  style={styles.inputnom} onChangeText={text => onChangeText(text)}/>
+
+        <TouchableOpacity onPress={()=>{console.log(navigation.navigate('Scan'))}}>
+           <View  style={styles.opacity}  >
+
+              <Text style={styles.txtbtn2}>Se connecter</Text>
             
-            <TextInput placeholder="Nom d'utilisateur"  style={styles.inputnom} onChangeText={text => onChangeText(text)}/>
-            <TextInput placeholder="Mot de passe"  style={styles.inputnom} onChangeText={text => onChangeText(text)}/>
-            <View style={styles.vuebtn}>
-                <Button  color="#FC8C0B" borderRadius="10"  style={styles.btnconnect} title= "Se connecter"/>
             </View>
+          </TouchableOpacity>
 
-            <Text style={styles.text} >Vous n'avez pas de compte ?</Text>
+        <Text style={styles.text} >Vous n'avez pas de compte ?</Text>
 
-            <Button  color="#FC8C0B" borderRadius="10"  style={styles.btnconnect} title= "Créer un compte"/>
+        <TouchableOpacity onPress={()=>{console.log(navigation.navigate('Inscription'))}}>
+           <View style={styles.opacity}   >
 
+              <Text style={styles.txtbtn}>Créer un compte</Text>
+            
+            </View>
+          </TouchableOpacity>
 
+       
+    </View>
 
-
-
-        </View>
-
-        
-
-      <StatusBar style="auto" />
-    </View>*/
-
-        
     
+
+  <StatusBar style="auto" />
+
+
+  </View>
+    </ScrollView>
     
+       
   );
 }
+export default VueAcceuil;
 
 
-/*const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
    
@@ -54,12 +67,37 @@ export default function App() {
     alignItems: 'center',
     justifyContent: 'center',
   },
+  opacity:{
+    marginBottom: 10,
+    marginTop:10,
+    marginLeft:125,
+    marginRight:50,
+
+  width: 140, 
+  height: 35,
+  borderRadius:15,
+  backgroundColor:'#FC8C0B',
+  },
+
+  txtbtn:{
+    marginTop:7,
+    marginLeft:20,
+    color:'#ffff',
+  },
+
+  txtbtn2:{
+    marginTop:7,
+    marginLeft:30,
+    color:'#ffff',
+
+  },
 
   text:{
     marginBottom: 10,
     marginTop:10,
-    marginLeft:135,
+    marginLeft:110,
     marginRight:40,
+    
   },
   btnconnect:{
     borderRadius: 10,
@@ -117,4 +155,4 @@ export default function App() {
   
 
 
-});*/
+});

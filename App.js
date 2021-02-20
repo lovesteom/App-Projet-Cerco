@@ -1,69 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text,Image, View, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import VueAcceuil from './View/VueAcceuil';
-//import 'react-native-gesture-handler';
-//import { NavigationContainer } from '@react-navigation/native';
+import Parametre from './View/Parametre';
+import ScanView from './View/ScanView';
+import Inscription from './View/Inscription';
 
-//import { createStackNavigator, createAppContainer, StackActions } from 'react-navigation';
+
+const Stack = createStackNavigator();
+
 
 
 export default function App() {
   return (
-    <VueAcceuil/>
     
-   /* <NavigationContainer style= {styles.container}>
+  <NavigationContainer>
+  
     <Stack.Navigator >
-      <Stack.Screen name="VueAcceuil"  component={VueAcceuil} />
-        int temp
-       
-      <View style={styles.container}>
-
-      <Image style={styles.imgaceuil} source={require('./assets/image/logo.png') }  />
-      <Button
-        onPress={VueAcceuil}
-          title=">"
-          color="#ffff"
-          />
-
-      <StatusBar style="auto" />
-    </View>
+      <Stack.Screen name="Accueil"  component={VueAcceuil} />
+      <Stack.Screen name="Scan"  component={ScanView} />
+      <Stack.Screen name="Parametre"  component={Parametre} />
+      <Stack.Screen name="Inscription"  component={Inscription} />
+      
       
     </Stack.Navigator>
-    </NavigationContainer>*/
-
-
-    /*<View style={styles.container}>
-
-      <Image style={styles.imgaceuil} source={require('./assets/image/logo.png') }  />
-      <Button
-        onPress={VueAcceuil}
-          title=">"
-          color="#0000"
-          />
-
-          
-      </View>*/
-      
+   
+ </NavigationContainer>
   );
 }
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FC8C0B',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 
-  imgaceuil:{
-    width: 150, 
-    height: 150,
-    //margin:19,
-    alignItems: 'center',
-    justifyContent: 'center',
-    
-  },
-
-});
