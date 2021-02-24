@@ -17,22 +17,27 @@ const Stack = createStackNavigator();
     <ScrollView>
 
 <View style={styles.container}>
+
+   
+
     <View style={styles.vueImage}>
         <Image style={styles.image} source={require('../assets/image/couscousroyal.png')}/>
         <Image style={styles.image2} source={require('../assets/image/logo2.png')}/>
         
-        <TextInput placeholder="Nom d'utilisateur"  style={styles.inputnom} onChangeText={text => onChangeText(text)}/>
-        <TextInput placeholder="Mot de passe"  style={styles.inputnom} onChangeText={text => onChangeText(text)}/>
-
-        <TouchableOpacity onPress={()=>{console.log(navigation.navigate('Scan'))}}>
+        <TextInput type='email-address' id="user" placeholder="Nom d'utilisateur"  style={styles.inputnom} />
+        <TextInput type='visible-password' id="password" placeholder="Mot de passe"  style={styles.inputnom} />
+       
+        <TouchableOpacity onPress={()=>{console.log(navigation.navigate('Scan'))}}
+        
+        >
            <View  style={styles.opacity}  >
-
+          
               <Text style={styles.txtbtn2}>Se connecter</Text>
-            
+           
             </View>
           </TouchableOpacity>
 
-        <Text style={styles.text} >Vous n'avez pas de compte ?</Text>
+        {/* <Text style={styles.text} >Vous n'avez pas de compte ?</Text>
 
         <TouchableOpacity onPress={()=>{console.log(navigation.navigate('Inscription'))}}>
            <View style={styles.opacity}   >
@@ -40,7 +45,7 @@ const Stack = createStackNavigator();
               <Text style={styles.txtbtn}>Créer un compte</Text>
             
             </View>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
        
     </View>
@@ -55,6 +60,17 @@ const Stack = createStackNavigator();
     
        
   );
+}
+
+
+function verifie(){
+  let name= document.getElementById('user');
+  let pass= document.getElementById('password');
+
+  sessionStorage.setItem('User', user);
+  sessionStorage.setItem('Password', password);
+  console.log(name)
+  console.log(pass)
 }
 export default VueAcceuil;
 
@@ -124,6 +140,7 @@ const styles = StyleSheet.create({
   image:{
     paddingLeft:10,
     paddingRight:10,
+    marginBottom:20,
     width: 393, 
     height: 236,
   },
@@ -142,7 +159,6 @@ const styles = StyleSheet.create({
    marginBottom: 10,
       marginTop:10,
       marginLeft:120,
-      marginRight:50,
        paddingLeft:15,
      paddingRight:9,
 

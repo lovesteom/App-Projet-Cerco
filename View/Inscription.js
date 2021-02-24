@@ -69,13 +69,14 @@ export default Inscription;
 const styles= StyleSheet.create({
   container: {
     position: 'relative',
-    right: '-35%',
+    right: '-33%',
     textAlign: 'center',
     color: '#FC8C0B',
     backgroundColor: '#FFFFFF',
-    width: '30%',
+    paddingLeft:9,
+    width: '36%',
     padding: 2,
-    borderRadius: 3,
+    borderRadius: 7,
     marginTop: 50
   }
 })

@@ -1,6 +1,9 @@
 import React, { useState, useEffect} from 'react'
 import { Image, StyleSheet, Text, View, Button, Linking } from 'react-native'
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import QRcode from './QRcode';
+import { createStackNavigator } from '@react-navigation/stack';
+
 export default function ScanView() {
 
     const [hasPermission, setHasPermission] = useState(null);
@@ -17,8 +20,10 @@ export default function ScanView() {
      
       const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
-        //alert(`Code scanné avec succès. Information: receuillie: ${data}`);
-        Linking.openURL(data)
+       // alert(`Code scanné avec succès. Information: receuillie: ${data}`);
+        console.log(navigation.navigate('QR_code'));
+        
+       // Linking.openURL(data)   //pour ouvrire le lien directement
       };
       
     
@@ -31,10 +36,11 @@ export default function ScanView() {
 
     return (
         <View style={styles.header}> 
+        
             <Image style={styles.headerImg}
             source={require('../assets/image/salmon.jpg')} 
             />
-
+            
             <View style={styles.scanner}>
                 <Text>Scan</Text>
                 <BarCodeScanner
