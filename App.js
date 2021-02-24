@@ -7,7 +7,6 @@ import ScanView from './View/ScanView';
 import Inscription from './View/Inscription';
 import { Button } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import AppNavigation from './View/src/routes';
 import QRcode from './View/QRcode';
 
 const Stack = createStackNavigator();
@@ -24,6 +23,9 @@ export default function App() {
           title: 'Accueil',
           headerStyle: {
             backgroundColor: '#FC8C0B',
+            borderBottomEndRadius: 10,
+            borderBottomEndRadius: 10,
+            borderBottomStartRadius: 10,
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -35,7 +37,9 @@ export default function App() {
 <Stack.Screen name="QRcode"  component={QRcode} options={{
           title: 'QRcode',
           headerStyle: {
-            backgroundColor: '#fff',
+            backgroundColor: '#FC8C0B',
+            borderBottomEndRadius: 10,
+            borderBottomStartRadius: 10,
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -56,6 +60,8 @@ export default function App() {
             ),
           headerStyle: {
             backgroundColor: '#ffff',
+            borderBottomEndRadius: 10,
+            borderBottomStartRadius: 10,
           },
           
           headerTintColor: '#fff',
@@ -68,6 +74,8 @@ export default function App() {
          
           headerStyle: {
             backgroundColor: '#FC8C0B',
+            borderBottomEndRadius: 10,
+            borderBottomStartRadius: 10,
           },
           headerTintColor: '#fff',
           headerTitleStyle: {

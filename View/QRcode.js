@@ -11,7 +11,7 @@ class QR_code extends React.Component{
           <WebView
               source={{
                 uri: data }}
-            />
+            /> 
         </View>
         <View style={{flex:1, flexDirection: 'row',backgroundColor: '#FFFFFF'}}>
           
