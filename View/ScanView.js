@@ -17,7 +17,7 @@ export default function ScanView({navigation}) {
 
       const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
-        alert(`Code scanné avec succès. Information: receuillie: ${data}`);
+        //alert(`Code scanné avec succès. Information: receuillie: ${data}`);
         //alert(`Code scanné avec succès. Information: receuillie: ${data}`);
         navigation.navigate('QRcode')
         //Linking.openURL(data)
