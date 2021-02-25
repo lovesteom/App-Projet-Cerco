@@ -1,16 +1,18 @@
 import React from 'react';
 import { View, StyleSheet,Text, TouchableOpacity, Button } from 'react-native';
 import { WebView } from 'react-native-webview';
-import data from './ScanView';
 
-class QR_code extends React.Component{
-  render(){
+
+const QRcode = ({route}) =>{
+  
+    
     return(
+      
       <View style={{flex:1, backgroundColor: '#FFFFFF'}}>
         <View style={{flex:5, backgroundColor: '#d7cfd5', borderRadius: 10}}>
           <WebView
               source={{
-                uri: data }}
+                uri: {route.params.paramKey} }}
             /> 
         </View>
         <View style={{flex:1, flexDirection: 'row',backgroundColor: '#FFFFFF'}}>

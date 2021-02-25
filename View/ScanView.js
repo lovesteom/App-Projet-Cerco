@@ -3,6 +3,8 @@ import { Image, StyleSheet, Text, View, Button, Linking } from 'react-native'
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import QRcode from './QRcode' ;
 import { createStackNavigator } from '@react-navigation/stack';
+
+
 export default function ScanView({navigation}) {
 
     const [hasPermission, setHasPermission] = useState(null);
@@ -17,9 +19,11 @@ export default function ScanView({navigation}) {
 
       const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
+        $web = data;
         //alert(`Code scanné avec succès. Information: receuillie: ${data}`);
         //alert(`Code scanné avec succès. Information: receuillie: ${data}`);
-        navigation.navigate('QRcode')
+        navigation.navigate('QRcode' ,{paramKey:data})
+        
         //Linking.openURL(data)
       };
 
@@ -42,7 +46,7 @@ export default function ScanView({navigation}) {
                     style={StyleSheet.absoluteFillObject}
                    
                 />
-                {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
+                {scanned && <Button title={'Tapé pour relancer'} onPress={() => setScanned(false)} />}
             </View> 
         </View>
     )
@@ -68,6 +72,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderWidth: 2,
         padding: 150,
+        width:120,
+        height: 150,
         marginTop: 10,
        
        
