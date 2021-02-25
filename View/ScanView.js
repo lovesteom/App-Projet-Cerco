@@ -19,10 +19,10 @@ export default function ScanView({navigation}) {
 
       const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
-        $web = data;
+        
         //alert(`Code scanné avec succès. Information: receuillie: ${data}`);
         //alert(`Code scanné avec succès. Information: receuillie: ${data}`);
-        navigation.navigate('QRcode' ,{paramKey:data})
+        navigation.navigate('QRcode' ,{data})
         
         //Linking.openURL(data)
       };
@@ -70,10 +70,9 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
-        borderWidth: 2,
-        padding: 150,
-        width:120,
-        height: 150,
+        //borderWidth: 1,
+        padding: '50%',
+        width:130,
         marginTop: 10,
        
        

@@ -23,9 +23,7 @@ export default function App() {
           title: 'Accueil',
           headerStyle: {
             backgroundColor: '#FC8C0B',
-            borderBottomEndRadius: 10,
-            borderBottomEndRadius: 10,
-            borderBottomStartRadius: 10,
+            
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -38,13 +36,12 @@ export default function App() {
           title: 'QRcode',
           headerStyle: {
             backgroundColor: '#FC8C0B',
-            borderBottomEndRadius: 10,
-            borderBottomStartRadius: 10,
+           
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
             fontWeight: "bold",
-            textAlign:'center',
+            
           },
         }}/>
 
@@ -53,15 +50,10 @@ export default function App() {
           initialParams={{ icon: 'user' }} 
           options={{
           title: 'Scan',
-          headerRight: () => (
-              <TouchableOpacity>
-                
-              </TouchableOpacity>
-            ),
+          
           headerStyle: {
-            backgroundColor: '#ffff',
-            borderBottomEndRadius: 10,
-            borderBottomStartRadius: 10,
+            backgroundColor: '#FC8C0B',
+            
           },
           
           headerTintColor: '#fff',
@@ -74,14 +66,25 @@ export default function App() {
          
           headerStyle: {
             backgroundColor: '#FC8C0B',
-            borderBottomEndRadius: 10,
-            borderBottomStartRadius: 10,
+            
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
             fontWeight: "bold",
             
             
+          },
+        }}/>
+
+        <Stack.Screen name="Inscription"  component={Inscription} options={{
+          title: 'Inscription',
+          headerStyle: {
+            backgroundColor: '#FC8C0B',
+            
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: "bold",
           },
         }}/>
      
@@ -97,13 +100,4 @@ export default function App() {
 
 
 
-/*<Stack.Screen name="Inscription"  component={Inscription} options={{
-  title: 'Inscription',
-  headerStyle: {
-    backgroundColor: '#FC8C0B',
-  },
-  headerTintColor: '#fff',
-  headerTitleStyle: {
-    fontWeight: "bold",
-  },
-}}/>*/
+/**/

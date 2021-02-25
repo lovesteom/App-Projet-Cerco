@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { View, StyleSheet,Text, TouchableOpacity, Button } from 'react-native';
 import { WebView } from 'react-native-webview';
@@ -9,16 +10,16 @@ const QRcode = ({route}) =>{
     return(
       
       <View style={{flex:1, backgroundColor: '#FFFFFF'}}>
-        <View style={{flex:5, backgroundColor: '#d7cfd5', borderRadius: 10}}>
+        <View style={{flex:5, backgroundColor: '#D5CDCD', borderRadius: 10}}>
           <WebView
               source={{
-                uri: {route.params.paramKey} }}
+                uri: route.params.data}}
             /> 
         </View>
         <View style={{flex:1, flexDirection: 'row',backgroundColor: '#FFFFFF'}}>
           
            
-            <TouchableOpacity >
+            <TouchableOpacity onPress={()=>{alert(`Votre paiement MoMo a été éffectué avec succès.`)}}>
               <View style={styles.mtn}>
                 <Text style={styles.txtmtn}>MTN Mobile Money</Text>
 
@@ -26,7 +27,7 @@ const QRcode = ({route}) =>{
               
             </TouchableOpacity>
 
-            <TouchableOpacity >
+            <TouchableOpacity onPress={()=>{alert(`Votre paiement Moov Money a été éffectué avec succès.`)}}>
               <View style={styles.moov}>
                 <Text style={styles.txtmtn}>Moov Money</Text>
 
@@ -34,8 +35,9 @@ const QRcode = ({route}) =>{
               
             </TouchableOpacity>
 
-            <TouchableOpacity >
+            <TouchableOpacity onPress={()=>{alert(`Votre paiement VISA a été éffectué avec succès.`)}}>
               <View style={styles.visa}>
+                
                <Text style={styles.txtmtn}>VISA</Text>
 
               </View>
@@ -47,11 +49,11 @@ const QRcode = ({route}) =>{
       </View>
     );
   }
-}
 
 
 
-export default QR_code
+
+export default QRcode
 
 
 const styles = StyleSheet.create({

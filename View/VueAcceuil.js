@@ -37,7 +37,7 @@ const Stack = createStackNavigator();
             </View>
           </TouchableOpacity>
 
-        {/* <Text style={styles.text} >Vous n'avez pas de compte ?</Text>
+        <Text style={styles.text} >Vous n'avez pas de compte ?</Text>
 
         <TouchableOpacity onPress={()=>{console.log(navigation.navigate('Inscription'))}}>
            <View style={styles.opacity}   >
@@ -45,7 +45,7 @@ const Stack = createStackNavigator();
               <Text style={styles.txtbtn}>Créer un compte</Text>
             
             </View>
-          </TouchableOpacity> */}
+          </TouchableOpacity>
 
        
     </View>
