@@ -5,6 +5,11 @@ import VueAcceuil from './View/VueAcceuil';
 import Parametre from './View/Parametre';
 import ScanView from './View/ScanView';
 import Inscription from './View/Inscription';
+import auth from './View/auth'
+import popos from './View/popos';
+
+
+
 import { Button } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import QRcode from './View/QRcode';
@@ -19,8 +24,11 @@ export default function App() {
   <NavigationContainer>
   
     <Stack.Navigator  >
-      <Stack.Screen name="Accueil"  component={VueAcceuil} options={{
-          title: 'Accueil',
+    
+
+
+      {/* <Stack.Screen name="auth"  component={auth} options={{
+          title: 'auth',
           headerStyle: {
             backgroundColor: '#FC8C0B',
             
@@ -30,10 +38,41 @@ export default function App() {
             fontWeight: "bold",
             textAlign:'center',
           },
-        }}/>
+        }}/> */}
 
-<Stack.Screen name="QRcode"  component={QRcode} options={{
-          title: 'QRcode',
+
+    <Stack.Screen name="VueAcceuil"  component={VueAcceuil} options={{
+              title: 'Accueil',
+              headerStyle: {
+                backgroundColor: '#FC8C0B',
+                
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: "bold",
+                textAlign:'center',
+              },
+            }}/>
+
+{/* <Stack.Screen name="popos"  component={popos} options={{
+              title: 'popos',
+              headerStyle: {
+                backgroundColor: '#FC8C0B',
+                
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: "bold",
+                textAlign:'center',
+              },
+            }}/> */}
+
+            
+
+          
+
+     <Stack.Screen name="QRcode"  component={QRcode} options={{
+              title: 'QRcode',
           headerStyle: {
             backgroundColor: '#FC8C0B',
            
@@ -46,7 +85,7 @@ export default function App() {
         }}/>
 
 
-      <Stack.Screen name="Scan"  component={ScanView} 
+      <Stack.Screen name="ScanView"  component={ScanView} 
           initialParams={{ icon: 'user' }} 
           options={{
           title: 'Scan',

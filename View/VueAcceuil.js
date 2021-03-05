@@ -1,35 +1,73 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, TextInput,TouchableOpacity,Button,ScrollView,Image,Text, View } from 'react-native';
+import React, { useState }  from 'react';
+import { StyleSheet, TextInput,TouchableOpacity,ScrollView,Image,Text, View, Alert  } from 'react-native';
 import ScanView from './ScanView';
 import Inscription from './Inscription';
+
 import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
+//import { Value } from 'react-native-reanimated';
 
 
 
-const Stack = createStackNavigator();
+  const VueAcceuil = ({navigation,route}) => {
+    // console.log(navigation)
+    // const [value] = React.useState('');
+    const Stack = createStackNavigator();
+    const [TextInputValue, setTextInputValue] = useState('');
+    const [TextInputValue1, setTextInputValue1] = useState('');
+   
+ const  buttonClickListener = () =>{
+    const emaill = TextInputValue;
+    const pass1 = TextInputValue1;
 
-  const VueAcceuil = ({navigation}) => {
-    console.log(navigation)
+    // var em='om@wadunu.com';
+    // var mo='12345';
+    // route.params.email
+    if (emaill== route.params.email && pass1 == route.params.pass)
+    {
+      console.log(navigation.navigate('ScanView'))
+    }
+    else{
+      alert("Identifiant incorrect");
+
+    }
+
+  // alert(emaill+" "+pass);
   
-  return (
-    <ScrollView>
+}
 
+
+
+  return (
+    
 <View style={styles.container}>
 
-   
+<ScrollView>
+
 
     <View style={styles.vueImage}>
         <Image style={styles.image} source={require('../assets/image/couscousroyal.png')}/>
         <Image style={styles.image2} source={require('../assets/image/logo2.png')}/>
         
-        <TextInput type='email-address' id="user" placeholder="Nom d'utilisateur"  style={styles.inputnom} />
-        <TextInput type='visible-password' id="password" placeholder="Mot de passe"  style={styles.inputnom} />
+        <TextInput 
+            type='email-address'
+            id="user" 
+            placeholder="Nom d'utilisateur" 
+              style={styles.inputnom} 
+              onChangeText={emaill => setTextInputValue(emaill)}
+               autoCompleteType="email"
+           />
+
+        <TextInput 
+           // type='visible-password'
+            id="password" 
+            placeholder="Mot de passe"
+            onChangeText={pass => setTextInputValue1(pass)}
+              style={styles.inputnom} 
+          />
        
-        <TouchableOpacity onPress={()=>{console.log(navigation.navigate('Scan'))}}
-        
-        >
+        <TouchableOpacity   onPress={buttonClickListener}>
            <View  style={styles.opacity}  >
           
               <Text style={styles.txtbtn2}>Se connecter</Text>
@@ -53,26 +91,21 @@ const Stack = createStackNavigator();
     
 
   <StatusBar style="auto" />
-
+  </ScrollView>
 
   </View>
-    </ScrollView>
+   
     
        
   );
 }
 
 
-function verifie(){
-  let name= document.getElementById('user');
-  let pass= document.getElementById('password');
 
-  sessionStorage.setItem('User', user);
-  sessionStorage.setItem('Password', password);
-  console.log(name)
-  console.log(pass)
-}
 export default VueAcceuil;
+
+
+  
 
 
 const styles = StyleSheet.create({
@@ -172,3 +205,90 @@ const styles = StyleSheet.create({
 
 
 });
+
+
+// SignUp.js
+// import React from 'react'
+// import {
+//   View,
+//   Button,
+//   TextInput,
+//   StyleSheet
+// } from 'react-native'
+
+// export default class VueAcceuil extends React.Component {
+//   state = {
+//     username: '', password: '', email: '', phone_number: ''
+//   }
+//   onChangeText = (key, val) => {
+//     this.setState({ [key]: val })
+//   }
+//   signUp = async () => {
+//     const { username, password, email, phone_number } = this.state
+//     try {
+//       // here place your signup logic
+//       console.log(alert('user successfully signed up!: ',username), success)
+//     } catch (err) {
+//       console.log('error signing up: ', err)
+//     }
+//   }
+ 
+//   render() {
+//     return (
+//       <View style={styles.container}>
+//         <TextInput
+//           style={styles.input}
+//           placeholder='Username'
+//           autoCapitalize="none"
+//           placeholderTextColor='white'
+//           onChangeText={val => this.onChangeText('username', val)}
+//         />
+//         <TextInput
+//           style={styles.input}
+//           placeholder='Password'
+//           secureTextEntry={true}
+//           autoCapitalize="none"
+//           placeholderTextColor='white'
+//           onChangeText={val => this.onChangeText('password', val)}
+//         />
+//         <TextInput
+//           style={styles.input}
+//           placeholder='Email'
+//           autoCapitalize="none"
+//           placeholderTextColor='white'
+//           onChangeText={val => this.onChangeText('email', val)}
+//         />
+//         <TextInput
+//           style={styles.input}
+//           placeholder='Phone Number'
+//           autoCapitalize="none"
+//           placeholderTextColor='white'
+//           onChangeText={val => this.onChangeText('phone_number', val)}
+//         />
+//         <Button
+//           title='Sign Up'
+//           onPress={this.signUp}
+//         />
+//       </View>
+//     )
+//   }
+// }
+
+// const styles = StyleSheet.create({
+//   input: {
+//     width: 350,
+//     height: 55,
+//     backgroundColor: '#42A5F5',
+//     margin: 10,
+//     padding: 8,
+//     color: 'white',
+//     borderRadius: 14,
+//     fontSize: 18,
+//     fontWeight: '500',
+//   },
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center'
+//   }
+// })
